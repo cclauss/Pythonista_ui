@@ -13,9 +13,9 @@ for filename in filenames:
 def warp_action(sender):
     sound.play_effect(filenames[int(sender.value)])
 
-view = ui.View(name = 'Captain Picard Wants Warp Speed')
 sw = ui.Switch()
 sw.action = warp_action
+view = ui.View(name = 'Captain Picard Wants Warp Speed')
 view.add_subview(sw)
 view.present()
 sw.center = view.center
