@@ -4,7 +4,7 @@ filename = 'name.txt'
  
 class GetUsernameView(ui.View):
     def __init__(self, username=None):
-        self.name = str(self.__class__.__name__)
+        self.name = self.__class__.__name__
         textfield = ui.TextView(name='namefield')
         textfield.height = 25
         textfield.text = self.username = username or self.read_username()
