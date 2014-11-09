@@ -11,7 +11,6 @@ def get_filenames(in_dir=None):
             if os.path.isfile(filename):
                 filenames.append(filename)
 
-    in_dir = in_dir or os.curdir
     filenames = []
     os.path.walk(in_dir or os.curdir, visit, None)
     return filenames
