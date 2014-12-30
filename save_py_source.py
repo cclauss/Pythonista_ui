@@ -1,6 +1,6 @@
 import datetime, os, zipfile
 
-exts = '.py pyui'.split()
+exts = 'py pyui'.split()
 zip_file_name = 'aa_source_code_%Y_%m_%d_%H_%M_%S.zip'
 zip_file_name = datetime.datetime.strftime(datetime.datetime.now(), zip_file_name)
 
