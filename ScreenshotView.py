@@ -1,3 +1,5 @@
+# See: http://omz-forums.appspot.com/pythonista/post/5880611407396864
+
 import datetime, ui
 
 class ScreenshotView(ui.View):
