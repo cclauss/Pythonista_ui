@@ -1,5 +1,3 @@
-# See: http://omz-forums.appspot.com/pythonista/post/5880611407396864
-
 import datetime, ui
 
 class ScreenshotView(ui.View):
@@ -11,16 +9,16 @@ class ScreenshotView(ui.View):
 
     def get_shapshot(self):
         with ui.ImageContext(self.width, self.height) as context:
-                self.draw_snapshot()
-                return context.get_image()
+            self.draw_snapshot()
+            return context.get_image()
 
     def screenshot_action(self, sender):
-        print('Saving screenshots at:')
+        print('Saving screenshots into local files:')
         for i in xrange(3):  # save three screenshots in a row
             now = str(datetime.datetime.now())
-            print('> ' + now)
             self['textfield'].text = now
             filename = 'Screenshot_{}.png'.format(now.replace(' ', '_'))
+            print('> ' + filename)
             with open(filename, 'wb') as out_file:
                 out_file.write(self.get_shapshot().to_png())
 
