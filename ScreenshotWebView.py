@@ -2,6 +2,7 @@
 
 import clipboard, ui
 
+"""
 html = '''<html>
   <head>
     <title>my html</title>
@@ -13,12 +14,14 @@ html = '''<html>
     This is <b>bold</b> text.
   </body>
 </html>'''
-    
+"""
+
 class ScreenshotView(ui.View):
     def __init__(self):
         self.present()
         self.add_subview(self.make_button())
-        self.add_subview(self.make_webview(html))
+        self.add_subview(self.make_webview('http://omz-software.com'))
+        #self.add_subview(self.make_webview(html))
 
     def get_shapshot(self):
         with ui.ImageContext(self.width, self.height) as context:
@@ -35,12 +38,13 @@ class ScreenshotView(ui.View):
         button.width  = self.width
         return button
 
-    #def make_webview(self, url='http://apple.com'):
-    #    wv = ui.WebView(name='webview', title=url, frame=self.bounds)
-    #    wv.load_url(url)
-    def make_webview(self, html=html):
-        wv = ui.WebView(name='webview', title='ScreenshotWebView', frame=self.bounds)
-        wv.load_html(html)
+    # could be made to work with URLs or with HTML
+    def make_webview(self, url='http://apple.com'):
+        wv = ui.WebView(name='webview', title=url, frame=self.bounds)
+        wv.load_url(url)
+    #def make_webview(self, html=html):
+    #    wv = ui.WebView(name='webview', title='ScreenshotWebView', frame=self.bounds)
+    #    wv.load_html(html)
         offset = self['button'].height
         wv.y      += offset
         wv.height -= offset
