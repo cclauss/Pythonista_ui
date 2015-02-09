@@ -22,7 +22,7 @@ class ScreenshotView(ui.View):
 
     def get_shapshot(self):
         with ui.ImageContext(self.width, self.height) as context:
-            self.draw_snapshot()
+            self['webview'].draw_snapshot()
             return context.get_image()
 
     def screenshot_action(self, sender):
