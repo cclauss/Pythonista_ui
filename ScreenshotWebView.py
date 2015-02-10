@@ -19,6 +19,7 @@ class ScreenshotView(ui.View):
     def __init__(self):
         self.present()
         self.add_subview(self.make_button())
+        #self.add_subview(self.make_webview('http://omz-software.com'))
         self.add_subview(self.make_webview(html))
 
     def get_shapshot(self):
