@@ -9,10 +9,17 @@ class TimedRefreshView(ui.View):
         self.add_subview(self.make_button())
         self.add_subview(self.make_textview())
         self.present('sheet')
+        self.refresh_cycle()
 
     def refresh_action(self, sender):
         print('refresh_action({}, {})'.format(self, sender))
         self['textfield'].text = str(datetime.datetime.now())
+    
+    def refresh_cycle(self):
+        if self.on_screen:
+            print('tick')
+            self.refresh_action(None)
+            refresh_thread = threading.Timer(2, self.refresh_cycle).run()
 
     def make_button(self):
         button = ui.Button(name='button', title='Refresh time')
@@ -32,11 +39,3 @@ class TimedRefreshView(ui.View):
         return tf
 
 tr_view = TimedRefreshView()
-
-def refresh_time(view):
-    if view.on_screen:
-        print('tick')
-        view.refresh_action(None)
-        refresh_thread = threading.Timer(2, refresh_time, args=[view]).run()
-
-refresh_time(tr_view)
