@@ -62,12 +62,11 @@ def test_cases():
     print(morse(morse(msg)))
 
     msg = ''.join([k for k in sorted(alpha2code_dict)])
-    print(morse(morse(msg)))
+    print(morse(morse(msg)))  # test entire translation table
     assert msg == morse(morse(msg)), 'Error in translation!!'
 
 def main(args):
     if args:
-        print(' '.join(args))
         print(morse(' '.join(args)))
     else:
         test_cases()
