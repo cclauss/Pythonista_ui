@@ -1,4 +1,5 @@
-# see: http://omz-forums.appspot.com/pythonista/post/6170731750621184
+# see:  http://omz-forums.appspot.com/pythonista/post/6170731750621184
+# code: https://github.com/cclauss/Pythonista_ui/blob/master/TimedRefreshView.py
 
 import datetime, threading, ui
 
