@@ -11,8 +11,8 @@ word_secs = dot_secs * 7  # dark time between words
 morse_dict = {
     '.' : (True,  dot_secs),
     '-' : (True,  dash_secs),
-    ' ' : (False, dash_secs),
-    ',' : (False, word_secs) }
+    ' ' : (False, dash_secs-dot_secs),
+    ',' : (False, word_secs-dot_secs) }
 valid_chars = ''.join(morse_dict.iterkeys())
 
 @ui.in_background
