@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# Source code: https://github.com/cclauss/Pythonista_ui
+# See: http://omz-forums.appspot.com/pythonista/post/4959204154540032
 # See: http://en.wikipedia.org/wiki/Morse_code
 
 import morse_code, toggle_flashlight, time, ui
