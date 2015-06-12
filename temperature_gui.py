@@ -5,6 +5,18 @@
 
 import ui
 
+fmt = '''{:g} degrees Fahrenheit is {:g} degrees Celsius.
+
+{:g} degrees Celsius is {:g} degrees Fahrenheit.'''
+
+def convert_action(sender):
+    try:
+        value = float(text_view.text.strip())
+    except ValueError:
+        value = 50
+    text_view.text = '{:g}'.format(value)
+    label.text = fmt.format(value, value * 1.2, value, value * 0.8)
+
 view = ui.View(name='Temperature Converter')
 view.hidden = True
 view.present()
@@ -15,6 +27,7 @@ text_view.alignment = ui.ALIGN_CENTER
 text_view.center = (w/2, h/4)
 
 button = ui.Button(title='Convert')
+button.action = convert_action
 button.center = (w/2, h/2)
 
 label = ui.Label()
@@ -29,17 +42,3 @@ view.add_subview(text_view)
 view.add_subview(button)
 view.add_subview(label)
 view.hidden = False
-
-fmt = '''{:g} degrees Fahrenheit is {:g} degrees Celsius.
-
-{:g} degrees Celsius is {:g} degrees Fahrenheit.'''
-
-def convert_action(sender):
-    try:
-        value = float(text_view.text.strip())
-    except ValueError:
-        value = 50
-    text_view.text = '{:g}'.format(value)
-    label.text = fmt.format(value, value * 1.2, value, value * 0.8)
-
-button.action = convert_action
