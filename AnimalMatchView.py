@@ -51,14 +51,11 @@ class AnimalMatchView(ui.View):
         self['name'].text = animal_name(self.current_animal.name)
         self['score'].text = 'Score = %d' % self.score
 
-    def close_action(self, sender):
-        self.close()
-
     def close_button(self):
         button = ui.Button(title='X')
         button.x = self.width - button.width
         button.y = button.height / 2
-        button.action = self.close_action
+        button.action = lambda sender: sender.superview.close()
         button.font = ('<system-bold>', 20)
         return button
 
