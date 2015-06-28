@@ -26,13 +26,11 @@ class AnimalMatchView(ui.View):
         self.add_subview(self.make_score_label())
         # Setup screen with top 200 pixels reserved for text
         x, y, w, h = self.bounds
-        w = self.col_width = w / 4
-        h = self.row_height = (h - 200) / 4
+        self.col_width = w / 4
+        self.row_height = (h - 200) / 4
         for animal in animals:
             self.add_subview(self.make_image_button(animal))
-        self.shuffle_image_locations()
-        self.current_animal = self.a_different_animal
-        self.refresh_labels()
+        self.refresh_game()
         self.hidden = False
 
     @property
@@ -47,7 +45,9 @@ class AnimalMatchView(ui.View):
             return self.a_different_animal
         return animal
 
-    def refresh_labels(self):
+    def refresh_game(self):
+        self.shuffle_image_locations()
+        self.current_animal = self.a_different_animal
         self['name'].text = animal_name(self.current_animal.name)
         self['score'].text = 'Score = %d' % self.score
 
@@ -69,7 +69,6 @@ class AnimalMatchView(ui.View):
         label.center = self.center
         label.font = (font_name, 64)
         label.y = 100 - label.height / 2
-        label.text = 'poop'
         return label
 
     def make_score_label(self):
@@ -78,7 +77,6 @@ class AnimalMatchView(ui.View):
         label.width = self.width * 0.2
         label.x = 20
         label.y = 100 - label.height / 2
-        label.text = 'Score: -24'
         return label
 
     def make_image_button(self, image_name='Snake'):
@@ -101,11 +99,10 @@ class AnimalMatchView(ui.View):
         if animal == self.current_animal:
             sound.play_effect('Powerup_1')
             self.score += 1
-            self.shuffle_image_locations()
-            self.current_animal = self.a_different_animal
+            self.refresh_game()
         else:
             sound.play_effect('Error')
             self.score -= 1
-        self.refresh_labels()
+            self['score'].text = 'Score = %d' % self.score
 
 AnimalMatchView()
