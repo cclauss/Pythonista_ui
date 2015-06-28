@@ -17,7 +17,7 @@ def animal_name(image_name):
 
 class AnimalMatchView(ui.View):
     def __init__(self):
-        #self.hidden = True
+        self.hidden = True
         self.current_animal = None
         self.score = 0
         self.present(orientations=['landscape'], hide_title_bar=True)
