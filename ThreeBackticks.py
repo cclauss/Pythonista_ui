@@ -64,7 +64,7 @@ class ThreeBackticksView(ui.View):
         self['python_code'].value = text_is_python(textview.text)
 
     def do_it(self):
-        text = self['text_view'].text
+        text = self['text_view'].text.rstrip()
         if text:
             lang = 'python' if self['python_code'].value else ''
             text = fmt.format(lang, text)
