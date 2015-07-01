@@ -56,7 +56,8 @@ class ThreeBackticksView(ui.View):
         text_view.height -= 100
         text_view.delegate = self
         text_view.text = clipboard.get()
-        #text_view.keyboard_type = ui.KEYBOARD_WEB_SEARCH # ui.KEYBOARD_EMAIL # ui.KEYBOARD_ASCII
+        text_view.autocapitalization_type = ui.AUTOCAPITALIZE_NONE
+        text_view.autocorrection_type = False
         text_view.spellchecking_type = False
         return text_view
 
