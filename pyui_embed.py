@@ -8,7 +8,7 @@
     * Create a new .py file which embeds the ui element list from .pyui file
     * Put onto the clipobard the Python code snippet to load the pyui's view
     
-    my_file.py:      a user created Python script
+    my_file.py:      a user-created Python script
     my_file.pyui:    a user-created file of Pythonista ui elements
     my_file_pyui.py: created by this script as a standalone .py file
                      You can run this script to fine tune the ui elements.
