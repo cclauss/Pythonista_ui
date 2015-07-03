@@ -4,9 +4,9 @@
     Pythonista .pyui files ease coding but can be difficult to post to GitHub,
     etc. so this script converts a .pyui file into a standalone .py file.
 
-    Ask the user to select a .pyui file
-    Create a new .py file which embeds the ui element list from .pyui file
-    Put onto the clipobard the Python code snippet to load the pyui's view
+    * Ask the user to select a .pyui file
+    * Create a new .py file which embeds the ui element list from .pyui file
+    * Put onto the clipobard the Python code snippet to load the pyui's view
     
     my_file.py:      a user created Python script
     my_file.pyui:    a user-created file of Pythonista ui elements
