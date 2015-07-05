@@ -41,7 +41,14 @@ def load_view_from_list(view_list=_ui_list):
         temp_file.seek(0)  # move the file read cursor back to byte zero
         return ui.load_view(temp_file.name)
 
+# optional utility function to your changes to the original .pyui file
+def write_back_to_pyiu_file(view_list=_ui_list):
+    filename = __file__.rpartition('_')[0] + '_xx.pyui'
+    with open(filename, 'w') as out_file:
+        json.dump(view_list, out_file)
+
 if __name__ == '__main__':
+    # write_back_to_pyiu_file()
     view = load_view_from_list(_ui_list)
     view.present(hide_title_bar=True)
 '''
