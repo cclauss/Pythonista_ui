@@ -16,7 +16,7 @@ class ButtonView(ui.View):
         sender.title = str(self.counter)
 
     def make_button(self, title=None):
-        button = ui.Button(frame=self.bounds, title=title or 'Tap me!')
+        button = ui.Button(title=title or 'Tap me!')
         button.action = self.action
         button.flex = 'WH'
         button.frame = self.bounds
