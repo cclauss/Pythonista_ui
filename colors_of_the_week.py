@@ -2,13 +2,14 @@
 
 import calendar, ui
 
-# the colors corresponding to days of the week
-# thai people often wear these colors on the day 
-# of the week. Is related to the Royal Family.
-# Currently, the most important is yellow, the
-# The King of Thailand was born on a Monday
-# He is the longest severing and living monach
-# in the world.
+'''
+    the colors corresponding to days of the week thai people often wear
+    these colors on the day of the week. Is related to the Royal Family.
+    Currently, the most important is yellow, the The King of Thailand
+    was born on a Monday. He is the longest severing and living monach
+    in the world.
+'''
+
 _day_color_dict = {day: color for day, color in zip(calendar.day_name,
                   'yellow pink green orange blue purple red'.split())}
 
