@@ -22,7 +22,9 @@ class MyTableViewDataSource (object):
         color = _day_color_dict[day]
         # 'subtitle'-style cells come with a built-in secondary label
         cell = ui.TableViewCell('subtitle')
+        cell.background_color = 'black'
         cell.text_label.text = day
+        cell.text_label.text_color = 'white'
         cell.detail_text_label.text = color
         cell.detail_text_label.text_color = color
         return cell
@@ -30,11 +32,10 @@ class MyTableViewDataSource (object):
     def tableview_number_of_rows(self, tableview, section):
         return 7  # or len([x for x in calendar.day_name])
 
-    def tableview_title_for_header(self, tableview, section):
-        return 'Week Days'
-
 if __name__ == '__main__':
     tb = ui.TableView()
+    tb.name='Colors of the Week'
+    tb.background_color = 'black'
     tb.size_to_fit()
     tb.data_source = MyTableViewDataSource()
     tb.present('sheet')
