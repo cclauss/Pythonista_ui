@@ -34,7 +34,7 @@ class MyTableViewDataSource (object):
 
 if __name__ == '__main__':
     tb = ui.TableView()
-    tb.name='Colors of the Week'
+    tb.name = 'Colors of the Week'
     tb.background_color = 'black'
     tb.size_to_fit()
     tb.data_source = MyTableViewDataSource()
