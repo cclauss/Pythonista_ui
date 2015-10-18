@@ -35,9 +35,10 @@ def make_web_view_from_url(url):
 
 class BarView(ui.View):
     def __init__(self, bar_dict):
+        self.name = bar_dict['name']
         self.add_subview(make_web_view_from_url(bar_dict['image_url']))
         self.add_subview(make_web_view_from_url(map_url_fmt.format(**bar_dict)))
-        self.add_subview(self.make_offers_view(bar_dict['name']))
+        self.add_subview(self.make_offers_view(self.name))
 
     def layout(self):
         x, y, w, h = self.bounds
@@ -65,7 +66,7 @@ class BarsView(ui.View):
         self.bars_dict = get_bars_dict()
         for bar_name in sorted(self.bars_dict):
             self.add_subview(self.make_bar_button(bar_name))
-        ui.NavigationView(self).present()
+        ui.NavigationView(self).present(orientations=['landscape'])
         self.navigation_view.name = 'Chamonix Hackathon 2015'
 
     def button_pressed(self, sender):
