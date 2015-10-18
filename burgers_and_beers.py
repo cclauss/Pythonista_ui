@@ -72,7 +72,7 @@ class BarsView(ui.View):
         self.navigation_view.push_view(BarView(self.bars_dict[sender.name]))
 
     def layout(self):
-        w, h = self.bounds.w / 4, self.bounds.h / 2
+        w, h = self.bounds[2] / 4, self.bounds[3] / 2
         for i, subview in enumerate(self.subviews):
             subview.frame = i % 4 * w, i / 4 * h, w, h
 
