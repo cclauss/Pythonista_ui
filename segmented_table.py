@@ -1,5 +1,7 @@
 # coding: utf-8
 
+# See: https://forum.omz-software.com/topic/2374/is-there-a-way-to-programmatically-highlight-a-ui-segmentedcontrol
+
 import ui
 
 class SegNav(ui.View):
@@ -7,12 +9,12 @@ class SegNav(ui.View):
         self.present()
         self.name = 'SegNav'
         seg = ui.SegmentedControl()
-        seg.selected_index = 0  # does not set the highlight
         seg.action = self.seg_view_action
         seg.background_color = 'white'
         seg.flex = 'W'
         seg.height = 40
         seg.segments = 'even', 'odd'
+        seg.selected_index = 0  # set the highlight
         seg.width = self.bounds.w
         self.add_subview(seg)
 
