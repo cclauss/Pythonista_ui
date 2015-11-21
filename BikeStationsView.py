@@ -19,11 +19,11 @@ def freshness(timestamp):
 def do_api_get(url=url, auth=auth):  # caches results in a local file
     filename = url.partition('?')[0].rpartition('/')[2].split('_')[2] + '.json'  # BikeStationStatus.json
     data = requests.get(url, auth=auth, verify=False).json()
-    if data:
+    if data:  # cache results into a local file
         with open(filename, 'w') as out_file:
             json.dump(data, out_file)
         return data
-    else:
+    else:  # if API inaccessable, try to read stale results from local file
         with open(filename) as in_file:
             return json.load(in_file)
 
@@ -36,7 +36,6 @@ def make_web_view_from_url(url):
 
 class BikeStationsView(ui.View):
     def __init__(self):
-        #self.bikes_available = True
         self.seg_control = self.make_segmented_control(
             ('with available bikes', 'with no bikes available'))
         self.add_subview(self.seg_control)
