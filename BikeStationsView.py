@@ -53,7 +53,7 @@ class BikeStationsView(ui.View):
         seg.height = 40
         seg.segments = segments
         seg.selected_index = 0
-        seg.width = self.bounds.w
+        seg.width = self.bounds[2]  # .w
         return seg
 
     def make_table_view(self):
