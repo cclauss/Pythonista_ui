@@ -24,7 +24,7 @@ class CharCountView(ui.View):
         label_height = 20
         self['chars'].frame = x, y, w / 2, label_height
         self['bytes'].frame = x + w / 2, y, w / 2, label_height
-        self['text'].frame = x,  y + label_height,  w,  h - label_height
+        self['text'].frame = x, y + label_height,  w,  h - label_height
 
     def textview_did_change(self, textview):
         self['chars'].text = '{} chars'.format(len(textview.text))
