@@ -1,5 +1,7 @@
 # See: http://omz-forums.appspot.com/pythonista/post/5282094997569536
 
+import ui
+
 class GetSomeTextView(ui.View):
     def __init__(self):
         self.name = 'Enter some text:'
@@ -7,6 +9,7 @@ class GetSomeTextView(ui.View):
         tf2 = self.make_text_field('bottom_field', 'Me too')
         tf1.action = tf2.action = self.textfield_action
         tf1.y += 20 ; tf2.y += 60  # move them down
+        self.width = self.height = 300
         self.present('sheet')
         print('-' * 20)
         self.wait_modal()
