@@ -11,6 +11,7 @@ class GetUsernameView(ui.View):
         self.add_subview(textfield)
 
         self.hidden = True
+        self.width = self.height = min(ui.get_screen_size())
         self.present('sheet')
         # somtimes it is good to be self-centered
         textfield.center = self.center
