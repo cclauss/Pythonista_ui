@@ -49,12 +49,12 @@ class TTT_Board(object):
         suffix = ', '.join([x for x in template if x != ' '])
         suffix = '\n' + 'Available squares: ' + suffix if suffix else 'No available squares.'
         s = ''
-        for row in xrange(3):
+        for row in range(3):
             if row:
                 s += '\n{}  -  {}\n'.format('-' * 9, '-' * 9)
             s += '{}  -  {}'.format(
-                ' | '.join([self.board[row*3+col] for col in xrange(3)]),
-                ' | '.join([template[row*3+col]   for col in xrange(3)]))
+                ' | '.join([self.board[row*3+col] for col in range(3)]),
+                ' | '.join([template[row*3+col]   for col in range(3)]))
         return s + suffix
 
     def switch_players(self):
@@ -182,7 +182,7 @@ class TicTacToeView(ui.View):
     def __init__(self):
         self.board = TTT_Board(self)
         self.present('sheet')
-        self.squares = [self.make_square(i) for i in xrange(9)]
+        self.squares = [self.make_square(i) for i in range(9)]
 
     def make_square(self, index):
         square = ui.Button(name='Square {}'.format(index))
@@ -190,7 +190,7 @@ class TicTacToeView(ui.View):
         square.bg_color     = 'ivory'
         square.border_width = 2
         square.border_color = 'lightblue'
-        x, y = index % 3, index / 3
+        x, y = index % 3, index // 3
         w3, h3 = self.width / 3, self.height / 3
         square.frame = x*w3, y*h3, w3, h3
         self.add_subview(square)
