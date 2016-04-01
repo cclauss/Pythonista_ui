@@ -90,7 +90,7 @@ class AnimalMatchView(ui.View):
         for i, view in enumerate(views):
             x, y, w, h = view.frame
             view.frame = ((i % 4) * self.col_width,
-                          (i / 4) * self.row_height + 190, w, h)
+                          (i // 4) * self.row_height + 190, w, h)
 
     def animal_action(self, animal):
         if animal == self.current_animal:
