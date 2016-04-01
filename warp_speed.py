@@ -6,7 +6,7 @@ import requests, sound, ui
 url_fmt = 'http://trekcore.com/audio/warp/{}.mp3'
 filenames = 'tng_warp_out4.caf tng_warp4_clean.caf'.split()
 for filename in filenames:
-    with open(filename, 'w') as out_file:
+    with open(filename, 'wb') as out_file:
         url = url_fmt.format(filename.rstrip('.caf'))
         out_file.write(requests.get(url).content)
     sound.load_effect(filename)
