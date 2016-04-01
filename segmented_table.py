@@ -20,13 +20,13 @@ class SegNav(ui.View):
 
         x, y, w, h = self.bounds
         self.table_view = ui.TableView()
-        self.table_view.data_source = ui.ListDataSource(xrange(0, 42, 2))
+        self.table_view.data_source = ui.ListDataSource(range(0, 42, 2))
         self.table_view.flex = 'WH'
         self.table_view.frame = x, y + seg.height, w, h - seg.height
         self.add_subview(self.table_view)
 
     def seg_view_action(self, sender):
         # print(sender.segments[sender.selected_index])
-        self.table_view.data_source.items = xrange(sender.selected_index, 42, 2)
+        self.table_view.data_source.items = range(sender.selected_index, 42, 2)
 
 SegNav()
