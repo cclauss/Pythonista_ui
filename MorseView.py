@@ -15,7 +15,7 @@ morse_dict = {
     '-' : (True,  dash_secs),
     ' ' : (False, dash_secs-dot_secs),
     ',' : (False, word_secs-dot_secs) }
-valid_chars = ''.join(morse_dict.iterkeys())
+valid_chars = ''.join(morse_dict.keys())
 
 @ui.in_background
 def flash_message(msg='--- ... ---'):
