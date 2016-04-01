@@ -35,10 +35,10 @@ if __name__ == '__main__':
         buttons_per_col = 2
         w = view.width / buttons_per_row
         h = view.height / buttons_per_col
-        for i, letter in enumerate(string.lowercase):
+        for i, letter in enumerate(string.ascii_lowercase):
             button_view = ButtonView(title=letter)
             #button_view.border_width = 1
             #button_view.border_color = 'white'
-            button_view.frame = (i % buttons_per_row * w, i / buttons_per_row * h, w, h)
+            button_view.frame = (i % buttons_per_row * w, i // buttons_per_row * h, w, h)
             view.add_subview(button_view)
         
