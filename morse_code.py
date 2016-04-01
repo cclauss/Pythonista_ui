@@ -39,7 +39,7 @@ alpha2code_dict = {
     '8' : '---..',
     '9' : '----.',
     '0' : '-----' }
-code2alpha_dict = {v:k for k,v in alpha2code_dict.iteritems()}
+code2alpha_dict = {v:k for k,v in alpha2code_dict.items()}
 
 def morse(msg='... --- ...' or 'sos'):
     msg = msg.lower().strip()
