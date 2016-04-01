@@ -75,7 +75,7 @@ class BarsView(ui.View):
     def layout(self):
         w, h = self.bounds[2] / 4, self.bounds[3] / 2
         for i, subview in enumerate(self.subviews):
-            subview.frame = i % 4 * w, i / 4 * h, w, h
+            subview.frame = i % 4 * w, i // 4 * h, w, h
 
     def make_bar_button(self, bar_name='Bard Up'):
         button = ui.Button()
