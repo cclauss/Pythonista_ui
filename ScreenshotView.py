@@ -14,7 +14,7 @@ class ScreenshotView(ui.View):
 
     def screenshot_action(self, sender):
         print('Saving screenshots into local files:')
-        for i in xrange(3):  # save three screenshots in a row
+        for i in range(3):  # save three screenshots in a row
             now = str(datetime.datetime.now())
             self['textfield'].text = now
             filename = 'Screenshot_{}.png'.format(now.replace(' ', '_'))
