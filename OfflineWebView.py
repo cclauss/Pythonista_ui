@@ -8,12 +8,14 @@ url = 'https://en.m.wikipedia.org/wiki/Python_(programming_language)'
 filename = (url.rpartition('/')[2] or url) + '.html'
 
 try:
-    html = requests.get(url).content
+    resp = requests.get(url)
+    encoding = resp.encoding  # UTF-8
+    html = resp.text
 except requests.ConnectionError:
     html = ''
 
 if html:
-    with open(filename, 'w') as out_file:
+    with open(filename, 'w', encoding=encoding) as out_file:
         out_file.write(html)
 else:
     try:
